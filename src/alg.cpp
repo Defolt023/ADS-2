@@ -14,28 +14,28 @@ double pown(double value, uint16_t n) {
   return res;
 }
 uint64_t fact(uint16_t n) {
-  int i, fact=1  
+  int i, fact=1, n;
   cin>>n;
   for (i=1; i<=n; i++)
   {
-  fact=fact*i; 
+  fact=fact*i;
   }
-  cout << fact; 
+  cout << fact;
 }
 double calcItem(double x, uint16_t n) {
   return pown(x, n)/fact(n);
-} 
-double expn(double x, uint16_t count) { 
+}
+double expn(double x, uint16_t count) {
   for (int n = 1; n <= count; n++) {
-  res += pown(x, n)/fact(n);  
+  res += pown(x, n)/fact(n); 
   }
   return res;
 }
-double sinn(double x, uint16_t count) {    
+double sinn(double x, uint16_t count) { 
   for (int i = 1; i <= count; i++) {
   res += pown(-1.0, (i - 1)) * calcItem(x, (2 * i - 1));
   }
-  return res    
+  return res;
 }
 double cosn(double x, uint16_t count) {
   for (int i = 1; i <= count; i++) {
