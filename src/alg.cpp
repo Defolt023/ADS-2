@@ -2,29 +2,22 @@
 #include <cstdint>
 #include "alg.h"
 double pown(double value, uint16_t n) {
-  int binpow (int a, int n) {
-  int res = 1;
-  while (n)
-  if (n & 1) {
-  res *= a;
-  --n;
+  double res = 1;
+  if (n == 0) {
+  return res;
+  } else {
+  for (int i = 1; i <= n; i++) {
+  res = value * res;
   }
-  else {
-  a = a;
-  n >>= 1;
   }
   return res;
-  }
 }
 uint64_t fact(uint16_t n) {
-  int i, fact=1, n;
-  cin>>n;
-  for (i=1; i<=n; i++)
-  {
-  fact=facti;
-  }
-  cout << fact;
-  return 0;
+  if (n == 0) {
+  return 1;
+  } else {
+  return n * fact(n - 1);
+}
 }
 double calcItem(double x, uint16_t n) {
   return pown(x, n)/fact(n);
