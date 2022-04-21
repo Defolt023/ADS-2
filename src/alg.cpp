@@ -2,44 +2,53 @@
 #include <cstdint>
 #include "alg.h"
 double pown(double value, uint16_t n) {
-  double res = 1;
-  if (n == 0) {
-  return res;
-  } else {
-  for (int i = 1; i <= n; i++) {
-  res = value * res;
+  double q = 1.0;
+  uint16_t j = 1;
+  while (j <= n) {
+  q = q * value;
+  j += 1;
   }
-  }
-  return res;
+  return q;
 }
 uint64_t fact(uint16_t n) {
-  if (n == 0) {
-  return 1;
-  } else {
-  return n * fact(n - 1);
-}
+  uint64_t j = 1;
+  uint64_t k = 1;
+  while (j <= n) {
+  k = k * j;
+  j += 1;
+  }
+  return k;
 }
 double calcItem(double x, uint16_t n) {
-  return pown(x, n)/fact(n);
+  double resultat = pown(x, n) / fact(n);
+  return resultat;
 }
 double expn(double x, uint16_t count) {
-  double res = 1;
-  for (int n = 1; n <= count; n++) {
-  res += pown(x, n)/fact(n);
+  double number = 0;
+  uint16_t j = 1;
+  while (j <= count) {
+  number = number + pown(x, j) / fact(j);
+  j += 1;
   }
-  return res;
+  number += 1;
+  return number;
 }
 double sinn(double x, uint16_t count) {
-  double res = 0;
-  for (int i = 1; i <= count; i++) {
-  res += pown(-1.0, (i - 1)) * calcItem(x, (2 * i - 1));
+  uint16_t st = 1;
+  double xes = 0;
+  while (st <= count) {
+  xes = xes + (pown(-1, (st - 1)) * calcItem(x, (2 * st) - 2));
+  xes = xes + (pown(-1, (st - 1)) * calcItem(x, (2 * st) - 1));
+  st +=1;
   }
-  return res;
+  return xes;
 }
 double cosn(double x, uint16_t count) {
-  double res = 0;
-  for (int i = 1; i <= count; i++) {
-  res += pown(-1.0, (i - 1)) * calcItem(x, (2 * i - 2));
+  double cos = 0;
+  uint16_t st = 1;
+  while (st <= count) {
+  cos = cos + (pown(-1, (st - 1)) * calcItem(x, (2 * st) - 2));
+  st +=1;
   }
-  return res;
+  return cos;
 }
