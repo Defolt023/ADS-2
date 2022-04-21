@@ -51,4 +51,4 @@ double cosn(double x, uint16_t count) {
   st +=1;
   }
   return cos;
-} 
+}
