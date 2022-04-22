@@ -12,43 +12,42 @@ double pown(double value, uint16_t n) {
 }
 uint64_t fact(uint16_t n) {
   uint64_t j = 1;
-  uint64_t k = 1;
+  uint64_t s = 1;
   while (j <= n) {
-  k = k * j;
+  s = s * j;
   j += 1;
   }
-  return k;
+  return s;
 }
 double calcItem(double x, uint16_t n) {
   double resultat = pown(x, n) / fact(n);
   return resultat;
 }
 double expn(double x, uint16_t count) {
-  double number = 0;
+  double ch = 0;
   uint16_t j = 1;
   while (j <= count) {
-  number = number + pown(x, j) / fact(j);
+  ch = ch + pown(x, j) / fact(j);
   j += 1;
   }
-  number += 1;
-  return number;
+  ch += 1;
+  return ch;
 }
 double sinn(double x, uint16_t count) {
-  uint16_t st = 1;
-  double xes = 0;
-  while (st <= count) {
-  xes = xes + (pown(-1, (st - 1)) * calcItem(x, (2 * st) - 2));
-  xes = xes + (pown(-1, (st - 1)) * calcItem(x, (2 * st) - 1));
-  st +=1;
+  uint16_t cb = 1;
+  double sinx = 0;
+  while (cb <= count) {
+  sinx = sinx + (pown(-1, (cb - 1)) * calcItem(x, (2 * cb) - 1));
+  cb +=1;
   }
-  return xes;
+  return sinx;
 }
 double cosn(double x, uint16_t count) {
-  double cos = 0;
-  uint16_t st = 1;
-  while (st <= count) {
-  cos = cos + (pown(-1, (st - 1)) * calcItem(x, (2 * st) - 2));
-  st +=1;
+  uint16_t cb = 1;
+  double cosx = 0;
+  while (cb <= count) {
+  cosx = cosx + (pown(-1, (cb - 1)) * calcItem(x, (2 * cb) - 2));
+  cb +=1;
   }
-  return cos;
+  return cosx;
 }
